@@ -97,7 +97,7 @@ func TestUpdateOrderHandler(t *testing.T) {
 
 func TestSearchOrdersHandler(t *testing.T) {
 	router := setupRouter()
-
+	orders := map[string]db.Order{}
 	// Create a couple of orders for testing
 	order1 := db.Order{
 		OrderID:       generateOrderID(),
@@ -120,6 +120,7 @@ func TestSearchOrdersHandler(t *testing.T) {
 		},
 		Status: "shipped",
 	}
+
 	orders[order2.OrderID] = order2
 
 	req, _ := http.NewRequest("GET", "/orders?customer_id=12345", nil)

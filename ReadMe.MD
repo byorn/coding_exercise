@@ -17,8 +17,15 @@ Run order-middleware.exe
 Test:
 --
 
+If you have Golang installed you can simply execute all the test using <br/>
+
+go test -v ./...
+
+
+Or in command line simply use curl command
+
 GET
-curl -u admin:password http://localhost:8080/orders?customer_id=10001
+curl -u admin:password 'http://localhost:8080/orders?customer_id=10001'
 
 
 POST
