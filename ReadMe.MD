@@ -1,4 +1,4 @@
-# Coding Challenge for a company
+# Coding exercise
 
 
 <h2>Solution</h2>
