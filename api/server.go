@@ -14,9 +14,9 @@ func NewServer() *Server {
 	server := &Server{
 		router: gin.Default(),
 	}
-	server.router.POST("/orders", basicAuth(createOrderHandler))
-	server.router.PUT("/orders/:id", basicAuth(updateOrderHandler))
-	server.router.GET("/orders", basicAuth(searchOrdersHandler))
+	server.router.POST("/orders", basicAuth(createOrderController))
+	server.router.PUT("/orders/:id", basicAuth(updateOrderController))
+	server.router.GET("/orders", basicAuth(searchOrdersController))
 	return server
 }
 

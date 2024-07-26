@@ -39,5 +39,4 @@ curl -X POST http://localhost:8080/orders \
 "price": 9.99
 }
 ],
-"status": "pending"
 }'

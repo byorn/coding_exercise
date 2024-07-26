@@ -10,7 +10,7 @@ import (
 
 var orders = db.InitMockData()
 
-func createOrderHandler(c *gin.Context) {
+func createOrderController(c *gin.Context) {
 	var order db.Order
 	if err := c.ShouldBindJSON(&order); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -19,11 +19,12 @@ func createOrderHandler(c *gin.Context) {
 	orderID := generateOrderID()
 	order.OrderID = orderID
 	order.PlacementDate = time.Now()
+	order.Status = "Pending"
 	orders[orderID] = order
 	c.JSON(http.StatusOK, order)
 }
 
-func updateOrderHandler(c *gin.Context) {
+func updateOrderController(c *gin.Context) {
 	orderID := c.Param("id")
 	var order db.Order
 	if err := c.ShouldBindJSON(&order); err != nil {
@@ -39,7 +40,7 @@ func updateOrderHandler(c *gin.Context) {
 	}
 }
 
-func searchOrdersHandler(c *gin.Context) {
+func searchOrdersController(c *gin.Context) {
 	customerID := c.Query("customer_id")
 	var result []db.Order
 	for _, order := range orders {
