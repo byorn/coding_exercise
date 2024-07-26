@@ -6,12 +6,6 @@
 Please refer to Solution.docx for the detailed solution
 
 <h2> Running the Sample </h2>
-==
-
-
-How to run:
---
-
 
 In mac:
 ./order-middleware
